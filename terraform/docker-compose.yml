@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  terraform:
+    image: hashicorp/terraform:0.12.19
+    container_name: terraform
+    environment:
+      - GOOGLE_CREDENTIALS
+      - TF_VAR_credentials
+      - TF_VAR_project_id
+    volumes:
+      - $PWD:/data
+    working_dir: /data

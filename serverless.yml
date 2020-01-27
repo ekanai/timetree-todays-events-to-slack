@@ -1,0 +1,43 @@
+service: timetree-todays-events-to-slack
+
+provider:
+  name: google
+  stage: production
+  runtime: python37
+  region:
+  project: ${env:PROJECT_ID}
+  # The GCF credentials can be a little tricky to set up. Luckily we've documented this for you here:
+  # https://serverless.com/framework/docs/providers/google/guide/credentials/
+  #
+  # the path to the credentials file needs to be absolute
+  credentials: ${env:GOOGLE_CREDENTIALS}
+
+plugins:
+  - serverless-google-cloudfunctions
+
+# needs more granular excluding in production as only the serverless provider npm
+# package should be excluded (and not the whole node_modules directory)
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - .git/**
+    - terraform/**
+    - .envrc
+    - .vscode
+
+functions:
+  timetree-todays-events-to-slack:
+    handler: timetree_todays_events_to_slack
+    events:
+      - event:
+          eventType: providers/cloud.pubsub/eventTypes/topic.publish
+          resource: projects/${env:PROJECT_ID}/topics/timetree-todays-events-to-slack
+# you can define resources, templates etc. the same way you would in a
+# Google Cloud deployment configuration
+#resources:
+#  resources:
+#    - type: storage.v1.bucket
+#      name: my-serverless-service-bucket
+#  imports:
+#    - path: my_template.jinja
