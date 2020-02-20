@@ -98,7 +98,9 @@ def parse_labels_from_upcoming_included(upcoming_events_includeds):
 def filter_upcoming_events(upcoming_events_events, headers):
     filtered_upcoming_events = []
     filtered_upcoming_events.extend(
-        filter_upcoming_events_from_user(upcoming_events_events, headers))
+        filter_upcoming_events_from_user(
+            filter_upcoming_events_from_category(upcoming_events_events),
+            headers))
 
     sorted_filtered_upcoming_events = sorted(
         filtered_upcoming_events, key=lambda x: x['attributes']['start_at'])
@@ -109,6 +111,15 @@ def filter_upcoming_events(upcoming_events_events, headers):
         or datetime_stiring_to_datetime(d['attributes']['start_at']) > now
     ]
     return sorted_filtered_upcoming_events
+
+
+def filter_upcoming_events_from_category(upcoming_events_events):
+    filtered_upcoming_events = []
+    for upcoming_event in upcoming_events_events:
+        if upcoming_event['attributes']['category'] == 'schedule':
+            filtered_upcoming_events.append(upcoming_event)
+
+    return filtered_upcoming_events
 
 
 def filter_upcoming_events_from_user(upcoming_events_events, headers):
