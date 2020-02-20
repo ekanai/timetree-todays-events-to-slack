@@ -24,8 +24,8 @@ locals {
       user      = "mark"
     }
 
-    miu_10 = {
-      schedule  = "0 10 * * *"
+    miu_08 = {
+      schedule  = "0 08 * * *"
       time_zone = "Asia/Tokyo"
       user      = "miu"
     }
