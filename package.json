@@ -12,7 +12,7 @@
     "serverless-google-cloudfunctions": "*"
   },
   "dependencies": {
-    "serverless": "^1.63.0",
-    "minimist": ">=1.2.3"
+    "minimist": ">=1.2.3",
+    "serverless": "^1.68.0"
   }
 }
