@@ -180,8 +180,8 @@ def post_to_slack(upcoming_events):
             "color":
             color,
             "fields": [{
-                "value": upcoming_event['attributes']['title']
-            }, {
+                "title": upcoming_event['attributes']['title'],
+                "title_link": upcoming_event['attributes']['url'],
                 "value": event_range(upcoming_event)
             }]
         }
