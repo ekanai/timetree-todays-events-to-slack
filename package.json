@@ -13,6 +13,6 @@
   },
   "dependencies": {
     "minimist": ">=1.2.3",
-    "serverless": "^1.68.0"
+    "serverless": "^1.74.1"
   }
 }
