@@ -13,6 +13,9 @@
   },
   "dependencies": {
     "minimist": ">=1.2.3",
-    "serverless": "^1.74.1"
+    "dot-prop": ">=5.1.1",
+    "serverless": "^1.78.1",
+    "to": "^0.2.9",
+    "update": "^0.7.4"
   }
 }
