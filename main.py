@@ -81,6 +81,7 @@ def get_upcoming_events(calendar, headers):
 
 def insert_calendar_info_to_event(calendar, upcoming_events_events):
     for upcoming_events_event in upcoming_events_events:
+        upcoming_events_event['calendar_id'] = calendar['id']
         upcoming_events_event['calendar_name'] = calendar['attributes']['name']
         upcoming_events_event['calendar_image_url'] = calendar['attributes'][
             'image_url']
@@ -177,16 +178,20 @@ def post_to_slack(upcoming_events):
             upcoming_event['calendar_name'],
             "author_icon":
             upcoming_event['calendar_image_url'],
+            "title":
+            upcoming_event['attributes']['title'],
+            "title_link":
+            os.environ['event_link_format'].format(
+                upcoming_event['calendar_id'], upcoming_event['id']),
             "color":
             color,
             "fields": [{
-                "title": upcoming_event['attributes']['title'],
-                "title_link": upcoming_event['attributes']['url'],
                 "value": event_range(upcoming_event)
             }]
         }
         message['attachments'].append(attachment)
 
+    print(message)
     requests.post(slack_webhook_url, data=json.dumps(message))
 
 

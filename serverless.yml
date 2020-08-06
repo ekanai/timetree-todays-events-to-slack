@@ -1,4 +1,4 @@
-service: timetree-todays-events-to-slack
+service: timetree-todays-events-post-slack
 
 provider:
   name: google
@@ -27,8 +27,10 @@ package:
     - .vscode
 
 functions:
-  timetree-todays-events-to-slack:
+  main:
     handler: timetree_todays_events_to_slack
+    environment:
+      event_link_format: ${env:EVENT_LINK_FORMAT}
     events:
       - event:
           eventType: providers/cloud.pubsub/eventTypes/topic.publish
