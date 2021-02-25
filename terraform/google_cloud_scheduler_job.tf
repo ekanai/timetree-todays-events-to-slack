@@ -1,11 +1,5 @@
 locals {
   google_cloud_scheduler_job-timetree-todays-events-to-slack = {
-    anju_10 = {
-      schedule  = "0 10 * * *"
-      time_zone = "Asia/Tokyo"
-      user      = "anju"
-    }
-
     fred_10 = {
       schedule  = "0 10 * * *"
       time_zone = "Asia/Tokyo"
