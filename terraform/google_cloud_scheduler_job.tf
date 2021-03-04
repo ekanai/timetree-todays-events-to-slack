@@ -42,12 +42,6 @@ locals {
       user      = "miu"
     }
 
-    tiger_09 = {
-      schedule  = "0 9 * * *"
-      time_zone = "Asia/Tokyo"
-      user      = "tiger"
-    }
-
     yuu_09 = {
       schedule  = "0 9 * * *"
       time_zone = "Asia/Tokyo"
