@@ -1,53 +1,5 @@
 locals {
-  google_cloud_scheduler_job-timetree-todays-events-to-slack = {
-    fred_10 = {
-      schedule  = "0 10 * * *"
-      time_zone = "Asia/Tokyo"
-      user      = "fred"
-    }
-
-    justin_08 = {
-      schedule  = "0 8 * * *"
-      time_zone = "Asia/Tokyo"
-      user      = "justin"
-    }
-
-    mark_10 = {
-      schedule  = "0 10 * * *"
-      time_zone = "Asia/Tokyo"
-      user      = "mark"
-    }
-
-    miu_08 = {
-      schedule  = "0 08 * * *"
-      time_zone = "Asia/Tokyo"
-      user      = "miu"
-    }
-
-    miu_13 = {
-      schedule  = "0 13 * * *"
-      time_zone = "Asia/Tokyo"
-      user      = "miu"
-    }
-
-    rio_09 = {
-      schedule  = "0 9 * * *"
-      time_zone = "Asia/Tokyo"
-      user      = "rio"
-    }
-
-    miu_17 = {
-      schedule  = "0 17 * * *"
-      time_zone = "Asia/Tokyo"
-      user      = "miu"
-    }
-
-    yuu_09 = {
-      schedule  = "0 9 * * *"
-      time_zone = "Asia/Tokyo"
-      user      = "yuu"
-    }
-  }
+  google_cloud_scheduler_job-timetree-todays-events-to-slack = {}
 }
 
 resource "google_cloud_scheduler_job" "timetree-todays-events-to-slack" {
