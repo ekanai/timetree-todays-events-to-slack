@@ -9,7 +9,7 @@
   "author": "serverless.com",
   "license": "MIT",
   "devDependencies": {
-    "assign-deep": "^0.4.8",
+    "assign-deep": "^1.0.0",
     "serverless-google-cloudfunctions": "*",
     "yargs-parser": "^2.4.1"
   },
