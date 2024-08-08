@@ -11,7 +11,7 @@
   "devDependencies": {
     "assign-deep": "^0.4.8",
     "serverless-google-cloudfunctions": "*",
-    "yargs-parser": "^2.4.1"
+    "yargs-parser": "^5.0.0"
   },
   "dependencies": {
     "dot-prop": ">=6.0.1",
